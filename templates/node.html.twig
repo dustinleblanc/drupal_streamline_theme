@@ -1,0 +1,37 @@
+{#
+  /**
+   * @file
+   *
+   * CLIENT_NAME's default theme implementation for a node.
+   */
+#}
+<article role="article" id="node-{{ node.id}}" class="{{ attributes.class }} clearfix"{{ attributes }}>
+
+  {{ user_picture }}
+
+  {{ title_prefix}}
+  {% if not page %}
+    <h2{{ title_attributes }}>
+      <a href="{{ node_url }}">{{ label}}</a>
+    </h2>
+  {% endif %}
+  {{ title_suffix }}
+
+  {% if display_submitted %}
+    <div class="submitted">
+      {{ submitted }}
+    </div>
+  {% endif %}
+
+  <div class="content"{{ content_attributes }}>
+
+      {# We hide the comments and links now so that we can render them later. #}
+      {% hide(content.comments) %}
+      {% hide(content.links) %}
+      {{ content }}
+  </div>
+
+  {{ links }}
+  {{ comments }}
+
+</article>
