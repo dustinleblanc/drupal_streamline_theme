@@ -1,0 +1,111 @@
+{#
+/**
+ * @file
+ * CLIENT_NAME's theme implementation to display a single page.
+ *
+ * The doctype, html, head and body tags are not in this template. Instead they
+ * can be found in the html.html.twig template.
+ */
+#}
+<div id="wrapper">
+  <header role="banner">
+    {% if logo %}
+      <a href="{{ front_page }}" title="{{ 'Home'|t }}" rel="home" id="logo">
+        <img src="{{ logo }}" alt="{{ 'Home'|t }}" />
+      </a>
+    {% endif %}
+
+    {% if site_name or site_slogan %}
+      <div id="name-and-slogan"{% if hide_site_name and hide_site_slogan %} class="visually-hidden"{% endif %}>
+        {% if site_name %}
+          {% if title %}
+            <div id="site-name"{% if hide_site_name %} class="visually-hidden"{% endif %}>
+              <strong>
+                <a href="{{ front_page }}" title="{{ 'Home'|t }}" rel="home"><span>{{ site_name }}</span></a>
+              </strong>
+            </div>
+          {# Use h1 when the content title is empty #}
+          {% else %}
+            <h1 id="site-name"{% if hide_site_name %} class="visually-hidden" {% endif %}>
+              <a href="{{ front_page }}" title="{{ 'Home'|t }}" rel="home"><span>{{ site_name }}</span></a>
+            </h1>
+          {% endif %}
+        {% endif %}
+
+        {% if site_slogan %}
+          <div id="site-slogan"{% if hide_site_slogan %} class="visually-hidden"{% endif %}>
+            {{ site_slogan }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {{ page.header }}
+
+    {% if main_menu %}
+      <nav id ="main-menu" class="navigation" role="navigation">
+        {{ main_menu }}
+      </nav> <!-- /#main-menu -->
+    {% endif %}
+
+  </header>
+
+  {% if page.highlighted %}
+    <div id="highlighted">{{ page.highlighted }}</div>
+  {% endif %}
+
+  {% if breadcrumb %}
+    <div class="site-breadcrumb">{{ breadcrumb }}</div>
+  {% endif %}
+
+  <div id="main" class="clearfix" role="main">
+    <div class="content-wrapper container">
+    {{ messages }}
+    {{ title_prefix }}
+
+      {% if title %}
+        <h1 class="title" id="page-title">{{ title }}</h1>
+      {% endif %}
+
+    {{ title_suffix}}
+
+    {% if tabs %}
+      <div class="tabs">
+        {{ tabs }}
+      </div>
+    {% endif %}
+
+    {{ page.help }}
+
+    {% if action_links %}
+      <ul class="action-links">
+        {{ action_links }}
+      </ul>
+    {% endif %}
+
+    {{ page.content }}
+
+    {% if page.sidebar_first %}
+      {{ page.sidebar_first }}
+    {% endif %}
+
+    {% if page.sidebar_second %}
+      {{ page.sidebar_second }}
+    {% endif %}
+
+    {% if page.one_last_thing_left %}
+      {{ page.one_last_thing_left }}
+    {% endif %}
+
+    {% if page.one_last_thing_right %}
+      {{ page.one_last_think_right }}
+    {% endif %}
+
+    </div>
+  </section>
+  <div class="push"></div>
+</div>
+
+<footer role="contentinfo">
+  {{ page.footer }}
+</footer>
