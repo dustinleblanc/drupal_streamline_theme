@@ -1,0 +1,19 @@
+name: Drupal Streamline
+type: theme
+description: "A responsive mobile first theme with SCSS."
+core: 8.x
+
+stylesheets:
+  all:
+    - css/style.css
+
+regions:
+  header: Header
+  highlighted: Highlighted
+  featured: Featured
+  content: Content
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  one_last_thing_left: 'One last thing - left'
+  one_last_thing_right: 'One last thing - right'
+  footer: Footer
